@@ -1,4 +1,7 @@
 <?php
+
+    // === Datenbank Connection, Table- und Link-Prefix IMMER überprüfen ===
+
     function dbconnect()
     {
         $l_con = pg_connect( "host=localhost port=5432 dbname=daimon" );
@@ -8,15 +11,20 @@
         return $l_con;
     }
 
+    function linkprefix( $pc_link )
+    {
+        return "/munition".$pc_link;
+    }
+
     function tableprefix( $pc_table )
     {
         return "munition_new.".$pc_table;  
     }
 
-    function linkprefix( $pc_link )
-    {
-        return "/munition".$pc_link;
-    }
+
+
+
+
 
     function jsonheader()
     {
