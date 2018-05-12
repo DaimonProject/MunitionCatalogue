@@ -22,6 +22,16 @@
                         );
                     });
                   });
+
+            jQuery.ajax("'.linkprefix( '/usage.php' ).'")
+                  .done( function(n) {
+                    n.forEach( function(i) {
+                        jQuery("#usage").append( 
+                            jQuery("<option>").val( i.id )
+                                              .text( i.name )
+                        );
+                    });
+                  });      
     });</script>';
 
 
@@ -31,7 +41,8 @@
     echo '<div class="col-sm-6">';
 
     echo '<form>';
-    echo '<div class="form-group"><label for="origin">Herstellung in</label><select class="form-control" id="origin"></select></div>';
+    echo '<div class="form-group"><label for="origin">hergestellt in</label><select class="form-control" id="origin"></select></div>';
+    echo '<div class="form-group"><label for="usage">verwendet in</label><select multiple class="form-control" id="usage"></select></div>';
     echo '</form>';
 
     echo '</div>';
