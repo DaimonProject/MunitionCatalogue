@@ -13,6 +13,11 @@
         return "munition_new.".$pc_table;  
     }
 
+    function linkprefix( $pc_link )
+    {
+        return "/munition".$pc_link;
+    }
+
     function jsonheader()
     {
         // https://www.codeofaninja.com/2017/02/create-simple-rest-api-in-php.html

@@ -4,16 +4,14 @@
     htmlheader();
 
     echo '<script>jQuery(function() {
-        // just call data once
-        jQuery.ajax( "/munition/tree.php" )
-              .done( function(i) {
-                jQuery("#tree").jstree({
-                    "core" : {
-                        "data" : [i]
+            jQuery("#tree").jstree({
+                "core" : {
+                    "data" : {
+                        "url" : "'.  linkprefix( '/tree.php?lazy' ) .'",
+                        "data" : function (n) { return { "id" : n.id }; }
                     }
-                });
+                }
             });
-
         
     });</script>';
 
