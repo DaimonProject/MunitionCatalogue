@@ -3,9 +3,6 @@
 
     htmlheader();
 
-
-    echo '<div id="tree"></div>';
-    
     echo '<script>jQuery(function() {
         // just call data once
         jQuery.ajax( "/munition/tree.php" )
@@ -19,6 +16,13 @@
 
         
     });</script>';
+
+
+
+    echo '<div class="row">';
+    echo '<div id="tree" class="col-sm-4"></div>';
+    echo '<div class="col-sm-6">Eingabeform</div>';
+    echo "</div>";
 
 
     htmlfooter();
