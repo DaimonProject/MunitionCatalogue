@@ -35,7 +35,7 @@
     });</script>';
 
 
-    echo '<div class="container">';
+    echo '<main role="main" class="container">';
     echo '<div class="row">';
     echo '<div id="tree" class="col-sm-4"></div>';
     echo '<div class="col-sm-6">';
@@ -47,7 +47,7 @@
 
     echo '</div>';
     echo "</div>";
-    echo '</div>';
+    echo '</main>';
 
 
     htmlfooter();

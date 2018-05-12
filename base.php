@@ -52,6 +52,11 @@
 
     function htmlfooter()
     {
+        echo '<footer class="footer">';
+        echo '<div class="container">';
+        echo '<span class="text-muted">made by <a href="mailto:philipp.kraus@tu-clausthal.de">Philipp Kraus</a></span>';
+        echo '</div>';
+        echo '</footer>';
         echo '</body></html>';
     }
 ?>
