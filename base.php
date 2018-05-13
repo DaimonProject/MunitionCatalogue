@@ -55,10 +55,8 @@
         echo '<title>DAIMON Munitionsdatenbank</title>';
         echo '<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" crossorigin="anonymous"></script>';
         echo '<script src="//cdnjs.cloudflare.com/ajax/libs/jstree/3.3.5/jstree.min.js" crossorigin="anonymous"></script>';
-        echo '<script src="//cdnjs.cloudflare.com/ajax/libs/jquery-contextmenu/2.6.4/jquery.contextMenu.min.js"></script>';
         echo '<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/jstree/3.3.5/themes/default/style.min.css" />';
         echo '<link rel="stylesheet" href="//stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">';
-        echo '<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/jquery-contextmenu/2.6.4/jquery.contextMenu.min.css" crossorigin="anonymous">';
         echo '<link rel="stylesheet" href="layout.css" />';
         echo '</head>';
         echo '<body>';

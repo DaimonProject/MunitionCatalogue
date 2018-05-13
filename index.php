@@ -75,7 +75,7 @@
 
     echo '<div class="col-xs-10 col-md-6">';
 
-    echo '<form id="data"><input id="objectid"/><input id="groupid"/>';
+    echo '<form id="data"><input type="hidden" id="objectid"/><input type="hidden" id="groupid"/>';
     echo '<div class="form-group"><label for="name">Name</label><input type="text" class="form-control" id="name" placeholder="eindeutiger Name"></div>';
     echo '<div class="form-group"><label for="origin">hergestellt in</label><select class="form-control" id="origin"></select></div>';
     echo '<div class="form-group"><label for="usage">verwendet in</label><select multiple class="form-control" id="usage"></select></div>';
