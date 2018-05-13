@@ -3,6 +3,8 @@
 
     htmlheader();
 
+    // https://github.com/swisnl/jQuery-contextMenu
+
     echo '<script>jQuery(function() {
             jQuery("#tree").jstree({
                 "core" : {
@@ -58,11 +60,22 @@
 
 
     echo '<main role="main" class="container">';
-    echo '<div class="row">';
-    echo '<div id="tree" class="col-sm-4"></div>';
-    echo '<div class="col-sm-6">';
+    
 
-    echo '<form id="data">';
+    echo '<div class="row">';
+    
+    echo '<div class="col-xs-8 col-md-6">';
+    echo '<div id="tree"></div>';
+    echo '<div class="col-xs-8 col-md-6 action">';
+    echo '<button type="button" id="save" class="btn btn-success">Speichern</button>';
+    echo '<button type="button" id="delete" class="btn btn-danger">Löschen</button>';
+    echo '</div>';
+    echo '<span class="text-muted">by <a href="mailto:philipp.kraus@tu-clausthal.de">Philipp Kraus</a></span>';
+    echo '</div>';
+
+    echo '<div class="col-xs-10 col-md-6">';
+
+    echo '<form id="data"><input id="objectid"/><input id="groupid"/>';
     echo '<div class="form-group"><label for="name">Name</label><input type="text" class="form-control" id="name" placeholder="eindeutiger Name"></div>';
     echo '<div class="form-group"><label for="origin">hergestellt in</label><select class="form-control" id="origin"></select></div>';
     echo '<div class="form-group"><label for="usage">verwendet in</label><select multiple class="form-control" id="usage"></select></div>';
@@ -70,6 +83,8 @@
 
     echo '</div>';
     echo "</div>";
+
+
     echo '</main>';
 
 
