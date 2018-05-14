@@ -2,6 +2,10 @@ html {
     position: relative;
     min-height: 100%;
 }
+
+#tree {
+    padding-bottom: 1em;
+}
   
 body {
     font-size: small;
