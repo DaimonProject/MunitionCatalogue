@@ -40,7 +40,7 @@
         $lo_substance = pg_execute( $lo_con, "substance", array() );
         while( $lo_data = pg_fetch_object( $lo_substance ) )
             array_push( $la_result, node( $lo_data ) );
-
+        
         $lo_reference = pg_execute( $lo_con, "reference", array() );
         while( $lo_data = pg_fetch_object( $lo_reference ) )
             array_push( $la_result, edge( $lo_data ) );          

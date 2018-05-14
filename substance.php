@@ -10,21 +10,12 @@
                         container: $("#substance"),
                         elements: i,
                         layout: {
-                            idealEdgeLength: 100,
-                            nodeOverlap: 20,
-                            refresh: 20,
-                            fit: true,
-                            padding: 20,
-                            randomize: true,
-                            componentSpacing: 100,
-                            nodeRepulsion: 400000,
-                            edgeElasticity: 100,
-                            nestingFactor: 5,
-                            gravity: 80,
-                            numIter: 1000,
-                            initialTemp: 200,
-                            coolingFactor: 0.95,
-                            minTemp: 1.0
+                            name: "cola",
+                            nodeSpacing: 150,
+                            edgeLengthVal: 100,
+                            animate: true,
+                            randomize: false,
+                            maxSimulationTime: 1500
                           },
 
                           style: [{

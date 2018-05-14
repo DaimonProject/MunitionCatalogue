@@ -71,7 +71,9 @@
         echo '<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" crossorigin="anonymous"></script>';
         echo '<script src="//cdnjs.cloudflare.com/ajax/libs/jstree/3.3.5/jstree.min.js" crossorigin="anonymous"></script>';
 
+        echo '<script src="//marvl.infotech.monash.edu/webcola/cola.min.js"></script>';
         echo '<script src="//cdnjs.cloudflare.com/ajax/libs/cytoscape/3.2.12/cytoscape.min.js" crossorigin="anonymous"></script>';
+        echo '<script src="cytoscape-cola.js" crossorigin="anonymous"></script>';
         echo '<script src="jquery.treeselect.min.js" crossorigin="anonymous"></script>';
 
         echo '<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/jstree/3.3.5/themes/default/style.min.css" />';
