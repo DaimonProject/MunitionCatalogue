@@ -9,13 +9,13 @@
             jQuery("#tree").jstree({
                 "core" : {
                     "data" : {
-                        "url" : "'.linkprefix( '/menu.php?lazy' ).'",
+                        "url" : "'.linkprefix( '/service//menu.php?lazy' ).'",
                         "data" : function (n) { return { "id" : n.id }; }
                     }
                 }
             });
 
-            jQuery.ajax("'.linkprefix( '/country.php' ).'")
+            jQuery.ajax("'.linkprefix( '/service/country.php' ).'")
                   .done( function(n) {
                     n.forEach( function(i) {
                         jQuery("#origin").append( 
@@ -25,7 +25,7 @@
                     });
                   });
 
-            jQuery.ajax("'.linkprefix( '/usage.php' ).'")
+            jQuery.ajax("'.linkprefix( '/service/usage.php' ).'")
                   .done( function(n) {
                     n.forEach( function(i) {
                         jQuery("#usage").append( 
@@ -35,7 +35,7 @@
                     });
                   });      
 
-            jQuery.ajax("'.linkprefix( '/parameter.php' ).'")
+            jQuery.ajax("'.linkprefix( '/service/parameter.php' ).'")
                   .done( function(n) {
                     n.forEach( function(i) {
                         jQuery("#data").append( 

@@ -2,12 +2,12 @@
 
     // JSON file with configuration
     // {
-    //    database: <Postgres Connection String>,
-    //    linkprefix: <Directory of the Scripts>,
-    //    tableprefix: <Postgres Schema Name>
+    //    "database": <Postgres Connection String>,
+    //    "linkprefix": <Directory of the Scripts>,
+    //    "tableprefix": <Postgres Schema Name>
     // }
     
-    $lc_config = file_get_contents("config.json");
+    $lc_config = file_get_contents( __DIR__."/../config.json" );
     if (!$lc_config)
         die( "configuration error" );
 
@@ -27,7 +27,7 @@
 
     function linkprefix( $pc_link )
     {
-        return CONFIG["linkprefix"].".".$pc_link;
+        return CONFIG["linkprefix"].$pc_link;
     }
 
     function tableprefix( $pc_table )
@@ -70,6 +70,8 @@
         
         echo '<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" crossorigin="anonymous"></script>';
         echo '<script src="//cdnjs.cloudflare.com/ajax/libs/jstree/3.3.5/jstree.min.js" crossorigin="anonymous"></script>';
+
+        echo '<script src="//cdnjs.cloudflare.com/ajax/libs/cytoscape/3.2.12/cytoscape.min.js" crossorigin="anonymous"></script>';
         echo '<script src="jquery.treeselect.min.js" crossorigin="anonymous"></script>';
 
         echo '<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/jstree/3.3.5/themes/default/style.min.css" />';
