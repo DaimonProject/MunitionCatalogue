@@ -9,7 +9,7 @@
             jQuery("#tree").jstree({
                 "core" : {
                     "data" : {
-                        "url" : "'.linkprefix( '/tree.php?lazy' ).'",
+                        "url" : "'.linkprefix( '/menu.php?lazy' ).'",
                         "data" : function (n) { return { "id" : n.id }; }
                     }
                 }
@@ -56,8 +56,14 @@
                     });
                   });
 
-    });</script>';
+                jQuery("chemicals").chosentree({
+                    width: 500,
+                    deepLoad: false,
+                    load: function(node, callback) {
+                    }
+                });
 
+    });</script>';
 
     echo '<main role="main" class="container">';
     
@@ -78,6 +84,7 @@
     echo '<form id="data"><input type="hidden" id="objectid"/><input type="hidden" id="groupid"/>';
     echo '<div class="form-group"><label for="name">Name</label><input type="text" class="form-control" id="name" placeholder="eindeutiger Name"></div>';
     echo '<div class="form-group"><label for="origin">hergestellt in</label><select class="form-control" id="origin"></select></div>';
+    echo '<div class="form-group"><label for="chemicals">Kampfstoff</label><div id="chemicals"></div></div>';
     echo '<div class="form-group"><label for="usage">verwendet in</label><select multiple class="form-control" id="usage"></select></div>';
     echo '</form>';
 

@@ -1,10 +1,24 @@
 <?php
 
-    // === Datenbank Connection, Table- und Link-Prefix IMMER überprüfen ===
+    // JSON file with configuration
+    // {
+    //    database: <Postgres Connection String>,
+    //    linkprefix: <Directory of the Scripts>,
+    //    tableprefix: <Postgres Schema Name>
+    // }
+    
+    $lc_config = file_get_contents("config.json");
+    if (!$lc_config)
+        die( "configuration error" );
+
+    define( "CONFIG", json_decode( $lc_config, true ) );
+    unset( $lc_config );
+
+
 
     function dbconnect()
     {
-        $l_con = pg_connect( "host=localhost port=5432 dbname=daimon" );
+        $l_con = pg_connect( CONFIG["database"] );
         if (!$l_con)
             die( "no database connection" );
 
@@ -13,12 +27,12 @@
 
     function linkprefix( $pc_link )
     {
-        return "/munition".$pc_link;
+        return CONFIG["linkprefix"].".".$pc_link;
     }
 
     function tableprefix( $pc_table )
     {
-        return "munition_new.".$pc_table;  
+        return CONFIG["tableprefix"].".".$pc_table;  
     }
 
 
@@ -53,11 +67,16 @@
         echo '<meta charset="utf-8"/>';
         echo '<meta name="viewport" content="width=device-width, initial-scale=1.0">';
         echo '<title>DAIMON Munitionsdatenbank</title>';
+        
         echo '<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" crossorigin="anonymous"></script>';
         echo '<script src="//cdnjs.cloudflare.com/ajax/libs/jstree/3.3.5/jstree.min.js" crossorigin="anonymous"></script>';
+        echo '<script src="jquery.treeselect.min.js" crossorigin="anonymous"></script>';
+
         echo '<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/jstree/3.3.5/themes/default/style.min.css" />';
-        echo '<link rel="stylesheet" href="//stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">';
+        echo '<link rel="stylesheet" href="//stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">';
+        echo '<link rel="stylesheet" href="jquery.treeselect.css" />';
         echo '<link rel="stylesheet" href="layout.css" />';
+        
         echo '</head>';
         echo '<body>';
     }
