@@ -34,9 +34,10 @@
     $lo_con = dbconnect();
 
     if ( pg_prepare( $lo_con, "substance", "select * from daimon.substance" )  
-        && pg_prepare( $lo_con, "reference", "select rf.*, s.iupac as source, t.iupac as target from daimon.refsubstancereference rf join daimon.substance s on s.id = rf.idsubstance join daimon.substance t on t.id = rf.idreference" )
+         && pg_prepare( $lo_con, "reference", "select rf.*, s.iupac as source, t.iupac as target from daimon.refsubstancereference rf join daimon.substance s on s.id = rf.idsubstance join daimon.substance t on t.id = rf.idreference" )
     )
     {
+        
         $lo_substance = pg_execute( $lo_con, "substance", array() );
         while( $lo_data = pg_fetch_object( $lo_substance ) )
             array_push( $la_result, node( $lo_data ) );

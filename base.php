@@ -73,6 +73,7 @@
 
         echo '<script src="//marvl.infotech.monash.edu/webcola/cola.min.js"></script>';
         echo '<script src="//cdnjs.cloudflare.com/ajax/libs/cytoscape/3.2.12/cytoscape.min.js" crossorigin="anonymous"></script>';
+        echo '<script src="colormap.min.js" crossorigin="anonymous"></script>';
         echo '<script src="cytoscape-cola.js" crossorigin="anonymous"></script>';
         echo '<script src="jquery.treeselect.min.js" crossorigin="anonymous"></script>';
 
