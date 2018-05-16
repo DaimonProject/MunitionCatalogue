@@ -7,7 +7,7 @@
     // http://js.cytoscape.org/#notation/elements-json
 
     echo '<script>
-        const RADIUS = 500;
+        const RADIUS = 1000;
 
         
         jQuery.ajax("'.linkprefix( '/service/substanceroot.php' ).'")
