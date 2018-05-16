@@ -3,7 +3,26 @@
 
     htmlheader();
 
+    // https://stackoverflow.com/questions/5300938/calculating-the-position-of-points-in-a-circle
+    // http://js.cytoscape.org/#notation/elements-json
+
     echo '<script>
+        function circle(points, radius)
+        {
+            let l_result = [];
+            let slice = 2 * Math.PI / points;
+            for (int i = 0; i < points; i++)
+            {
+                let double angle = slice * i;
+                l_result.push({
+                    x: radius * Math.Cos(angle),
+                    y: radius * Math.Sin(angle)
+                });
+            }
+            return l_result;
+        }
+
+        
         jQuery.ajax("'.linkprefix( '/service/substanceroot.php' ).'")
               .done( function(n) { 
                     let la_color = {};
