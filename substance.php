@@ -7,48 +7,50 @@
     // http://js.cytoscape.org/#notation/elements-json
 
     echo '<script>
-        function circle(points, radius)
-        {
-            let l_result = [];
-            let slice = 2 * Math.PI / points;
-            for (int i = 0; i < points; i++)
-            {
-                let double angle = slice * i;
-                l_result.push({
-                    x: radius * Math.Cos(angle),
-                    y: radius * Math.Sin(angle)
-                });
-            }
-            return l_result;
-        }
+        const RADIUS = 500;
 
         
         jQuery.ajax("'.linkprefix( '/service/substanceroot.php' ).'")
               .done( function(n) { 
-                    let la_color = {};
+                    let la_nodes = {};
 
-                    let la_map = colormap({
+                    let ln_slice = 2 * Math.PI / n.length;
+                    let la_colormap = colormap({
                         colormap: "rainbow", 
                         nshades: n.length
                     });
                     
+                
                     for( i=0; i < n.length; i++ )
-                        la_color[ n[i] ] = la_map[i];
+                    {
+                        let ln_angle = ln_slice * i;
+                        la_nodes[ n[i] ] = {
+                            color: la_colormap[i],
+                            position : {
+                                x: RADIUS * Math.cos( ln_angle ),
+                                y: RADIUS * Math.sin( ln_angle )
+                            }
+                        };
+                    }
 
-     
                     jQuery.ajax("'.linkprefix( '/service/substancereference.php' ).'")
                         .done( function(i) {
-
+  
                                 var cy = cytoscape({
                                     container: $("#substance"),
-                                    elements: i,
+                                    elements: i.map(function(n) {
+                                        let l_root = la_nodes[ n.data.id ]
+                                        if ( l_root )
+                                            n.position = l_root.position;
+                                        return n; 
+                                    }),
                                     layout: {
                                         name: "cola",
-                                        nodeSpacing: 150,
-                                        edgeLengthVal: 100,
+                                        nodeSpacing: 200,
+                                        edgeLengthVal: 250,
                                         animate: true,
                                         randomize: false,
-                                        maxSimulationTime: 1500
+                                        maxSimulationTime: 1000
                                     },
 
                                     style: [{
@@ -56,8 +58,8 @@
                                         style: {
                                             content: "data(id)",
                                             "background-color" : function(n) { 
-                                                let l_col = la_color[ n.data("id") ];
-                                                return l_col ? l_col : "#ddd"; 
+                                                let l_root = la_nodes[ n.data("id") ]
+                                                return l_root ? l_root.color : "#ddd"; 
                                             }
                                         }
                                     }]
