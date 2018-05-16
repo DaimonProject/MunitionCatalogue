@@ -21,7 +21,7 @@
     {
         return array(
             "data" => array(
-                "id" => $po->idsubstance.$po->idcontains,
+                "id" => $po->idsubstance.$po->idreference,
                 "source" => $po->source,
                 "target" => $po->target
             )
@@ -34,7 +34,7 @@
     $lo_con = dbconnect();
 
     if ( pg_prepare( $lo_con, "substance", "select * from daimon.substance" )  
-        && pg_prepare( $lo_con, "reference", "select rf.*, s.iupac as source, t.iupac as target from daimon.refsubstance rf join daimon.substance s on s.id = rf.idsubstance join daimon.substance t on t.id = rf.idcontains" )
+        && pg_prepare( $lo_con, "reference", "select rf.*, s.iupac as source, t.iupac as target from daimon.refsubstancereference rf join daimon.substance s on s.id = rf.idsubstance join daimon.substance t on t.id = rf.idreference" )
     )
     {
         $lo_substance = pg_execute( $lo_con, "substance", array() );

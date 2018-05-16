@@ -4,7 +4,7 @@
     htmlheader();
 
     echo '<script>
-        jQuery.ajax("'.linkprefix( '/service/substancerelationship.php' ).'")
+        jQuery.ajax("'.linkprefix( '/service/substancereference.php' ).'")
               .done( function(i) {
                     var cy = cytoscape({
                         container: $("#substance"),
