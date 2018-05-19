@@ -29,12 +29,11 @@
     }
 
 
-
     $la_result = array();
     $lo_con = dbconnect();
 
-    if ( pg_prepare( $lo_con, "substance", "select iupac from chemistry.viewconcatelements" )  
-         && pg_prepare( $lo_con, "reference", "select rf.*, s.iupac as source, t.iupac as target from chemistry.viewconcatelements s
+    if ( pg_prepare( $lo_con, "substance", "select array_to_string(iupac, ', ' ) as iupac from chemistry.viewconcatelements" )  
+         && pg_prepare( $lo_con, "reference", "select rf.*, array_to_string(s.iupac, ', ' ) as source, array_to_string(t.iupac, ', ' ) as target from chemistry.viewconcatelements s
          join chemistry.refelementreference rf on rf.idelement = s.idelement
          join chemistry.viewconcatelements t on t.idelement = rf.idreference" )
     )
