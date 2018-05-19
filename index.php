@@ -76,7 +76,8 @@
     echo '<button type="button" id="save" class="btn btn-success">Speichern</button>';
     echo '<button type="button" id="delete" class="btn btn-danger">Löschen</button>';
     echo '</div>';
-    echo '<span class="text-muted"><a href="substance.php">Darstellung der Chemische Kampfstoffe</a></span><br/><br/>';
+    echo '<span class="text-muted"><a href="substance.php">Darstellung Chemische Stoffe</a></span><br/><br/>';
+    echo '<span class="text-muted"><a href="therapy.php">Darstellung Therapiemöglichkeit</a></span><br/><br/>';
     echo '<span class="text-muted">by <a href="mailto:philipp.kraus@tu-clausthal.de">Philipp Kraus</a></span>';
     echo '</div>';
 
