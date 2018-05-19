@@ -21,7 +21,7 @@
     {
         return array(
             "data" => array(
-                "id" => $po->idsubstance.$po->idreference,
+                "id" => $po->idelement.$po->idreference,
                 "source" => $po->source,
                 "target" => $po->target
             )
@@ -33,8 +33,10 @@
     $la_result = array();
     $lo_con = dbconnect();
 
-    if ( pg_prepare( $lo_con, "substance", "select * from chemistry.substance" )  
-         && pg_prepare( $lo_con, "reference", "select rf.*, s.iupac as source, t.iupac as target from chemistry.refsubstancereference rf join chemistry.substance s on s.id = rf.idsubstance join chemistry.substance t on t.id = rf.idreference" )
+    if ( pg_prepare( $lo_con, "substance", "select iupac from chemistry.viewconcatelements" )  
+         && pg_prepare( $lo_con, "reference", "select rf.*, s.iupac as source, t.iupac as target from chemistry.viewconcatelements s
+         join chemistry.refelementreference rf on rf.idelement = s.idelement
+         join chemistry.viewconcatelements t on t.idelement = rf.idreference" )
     )
     {
         

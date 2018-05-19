@@ -7,7 +7,7 @@
     echo json_encode( 
         array_map(
             function( $i ) { return $i->iupac; },
-            sqldata( "select r.iupac from chemistry.substanceroot r join chemistry.substance s on s.id = r.id order by molarmass_g_per_mol" ) 
+            sqldata( "select * from chemistry.viewconcatelements order by molarmass_g_per_mol" ) 
         )
     );
 ?>
