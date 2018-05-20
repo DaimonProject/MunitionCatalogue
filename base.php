@@ -59,7 +59,7 @@
         header( "Content-Type: application/json" );
     }
 
-    function htmlheader()
+    function htmlheader($pc_addon = "")
     {
         echo '<!doctype html>';
         echo '<html lang="de">';
@@ -71,6 +71,7 @@
         echo '<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" crossorigin="anonymous"></script>';
         echo '<script src="//cdnjs.cloudflare.com/ajax/libs/jstree/3.3.5/jstree.min.js" crossorigin="anonymous"></script>';
 
+        echo '<script src="//3dmol.csb.pitt.edu/build/3Dmol-nojquery.js"></script>';
         echo '<script src="//marvl.infotech.monash.edu/webcola/cola.min.js"></script>';
         echo '<script src="//cdnjs.cloudflare.com/ajax/libs/cytoscape/3.2.12/cytoscape.min.js" crossorigin="anonymous"></script>';
         echo '<script src="colormap.min.js" crossorigin="anonymous"></script>';
@@ -81,7 +82,7 @@
         echo '<link rel="stylesheet" href="//stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">';
         echo '<link rel="stylesheet" href="jquery.treeselect.css" />';
         echo '<link rel="stylesheet" href="layout.css" />';
-        
+        echo $pc_addon;
         echo '</head>';
         echo '<body>';
     }

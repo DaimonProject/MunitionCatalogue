@@ -78,6 +78,7 @@
     echo '</div>';
     echo '<span class="text-muted"><a href="substance.php">Darstellung Chemische Stoffe</a></span><br/><br/>';
     echo '<span class="text-muted"><a href="therapy.php">Darstellung Therapiemöglichkeit</a></span><br/><br/>';
+    echo '<span class="text-muted"><a href="visualize.php">Darstellung Molekül</a></span><br/><br/>';
     echo '<span class="text-muted">by <a href="mailto:philipp.kraus@tu-clausthal.de">Philipp Kraus</a></span>';
     echo '</div>';
 
